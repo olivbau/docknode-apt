@@ -1,0 +1,13 @@
+{$HOST} {
+
+        basicauth /* {
+                {$BASIC_AUTH_USERS}
+        }
+
+        handle /nodeexporter/metrics {
+                rewrite /nodeexporter/metrics /metrics
+                reverse_proxy nodeexporter:9100
+        }
+
+        reverse_proxy fullnode:8080
+}
