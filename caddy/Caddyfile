@@ -9,5 +9,10 @@
                 reverse_proxy nodeexporter:9100
         }
 
+        handle /fullnode/metrics {
+                rewrite /fullnode/metrics /metrics
+                reverse_proxy fullnode:9101
+        }
+
         reverse_proxy fullnode:8080
 }
