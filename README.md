@@ -1,5 +1,11 @@
 # Docknode ETH
 
+## Metrics
+
+* `https://yourdomain.com:9100/metrics`
+* `https://yourdomain.com:9102/metrics`
+
+
 ## Install 
 
 0. VPS config (optional)

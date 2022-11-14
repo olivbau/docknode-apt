@@ -12,7 +12,7 @@
         reverse_proxy nodeexporter:9100
 }
 
-{$HOST}:9101 {
+{$HOST}:9102 {
         basicauth /* {
                 {$BASIC_AUTH_USERS}
         }
