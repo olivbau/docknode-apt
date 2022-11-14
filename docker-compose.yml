@@ -16,9 +16,9 @@ services:
     hostname: fullnode
     restart: unless-stopped
     ports:
-      - 127.0.0.1:8080
-      - 9101:9101
-      - 6180:6180
+      - 127.0.0.1:8080:8080
+      - 9101:9101/tcp
+      - 6180:6180/tcp
     volumes:
       - ./aptos:/opt/aptos/etc
       - fullnode_data:/opt/aptos/data
@@ -48,9 +48,7 @@ services:
     image: caddy:2-alpine
     container_name: caddy
     depends_on:
-      - executionnode
-      - beaconnode
-      - nodeexporter
+      - fullnode
     ports:
       - "80:80"
       - "443:443"
