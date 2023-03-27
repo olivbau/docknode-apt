@@ -45,8 +45,9 @@ ufw enable
 ```bash
 curl -o ./aptos/genesis.blob https://raw.githubusercontent.com/aptos-labs/aptos-networks/main/mainnet/genesis.blob
 curl -o ./aptos/waypoint.txt https://raw.githubusercontent.com/aptos-labs/aptos-networks/main/mainnet/waypoint.txt
+
 docker compose pull
 docker compose up -d
-docker logs -f fullnode --since 1m
+docker logs -f docknode-apt-fullnode-1 --since 5m
 docker compose down
 ```
