@@ -2,8 +2,8 @@
 
 ## Metrics
 
-* `https://yourdomain.com:9100/metrics`
-* `https://yourdomain.com:9102/metrics`
+* `https://mydomain.com:9100/metrics`
+* `https://mydomain.com:9102/metrics`
 
 
 ## Install 
