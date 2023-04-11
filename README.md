@@ -13,6 +13,9 @@
 apt update
 apt upgrade
 apt install git
+# Or all in one command
+apt update && apt upgrade -y && apt install -y git
+
 # install docker https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
 ```
 
