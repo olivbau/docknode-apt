@@ -2,13 +2,13 @@
 
 ## Metrics
 
-* `https://mydomain.com:9100/metrics`
-* `https://mydomain.com:9102/metrics`
+- `https://mydomain.com:9100/metrics`
+- `https://mydomain.com:9102/metrics`
 
-
-## Install 
+## Install
 
 0. VPS config (optional)
+
 ```bash
 apt update
 apt upgrade
@@ -20,12 +20,14 @@ apt update && apt upgrade -y && apt install -y git
 ```
 
 1. Clone the repository and
+
 ```bash
 git clone https://github.com/olivbau/docknode-apt.git
 cd docknode-apt
 ```
 
 2. Configure environement variables
+
 ```bash
 cp .env.example .env
 
@@ -38,6 +40,7 @@ nano .env
 ```
 
 3. Setup UFW
+
 ```bash
 ufw allow ssh
 ufw deny 8080
@@ -45,6 +48,7 @@ ufw enable
 ```
 
 4. Run
+
 ```bash
 curl -o ./aptos/genesis.blob https://raw.githubusercontent.com/aptos-labs/aptos-networks/main/mainnet/genesis.blob
 curl -o ./aptos/waypoint.txt https://raw.githubusercontent.com/aptos-labs/aptos-networks/main/mainnet/waypoint.txt
