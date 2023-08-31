@@ -54,7 +54,7 @@ curl -o ./aptos/genesis.blob https://raw.githubusercontent.com/aptos-labs/aptos-
 curl -o ./aptos/waypoint.txt https://raw.githubusercontent.com/aptos-labs/aptos-networks/main/mainnet/waypoint.txt
 
 docker compose pull
-docker compose up -d --abort-on-container-exit
+docker compose up -d
 docker logs -f docknode-apt-fullnode-1 --since 5m
 docker compose down
 ```
