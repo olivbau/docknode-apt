@@ -42,7 +42,7 @@ nano .env
 3. Setup UFW
 
 ```bash
-ufw allow ssh && ufw deny 8080 && ufw allow https
+ufw allow ssh && ufw deny 8080
 ufw enable
 ```
 
