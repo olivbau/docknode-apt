@@ -74,7 +74,7 @@ services:
       - docknode-apt
 
   indexerprocessor:
-    image: aptoslabs/indexer-processor-rust:latest
+    image: aptoslabs/indexer-processor-rust
     volumes:
       - ./indexer/config.yaml:/config.yaml
     expose:
@@ -82,7 +82,5 @@ services:
       - 8080
     command:
       - "-c /config.yaml"
-    depends_on:
-      - postgres
     networks:
       - docknode-apt
