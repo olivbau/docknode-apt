@@ -76,7 +76,7 @@ services:
   indexerprocessor:
     image: aptoslabs/indexer-processor-rust
     volumes:
-      - ./indexer/config.yaml:/config.yaml
+      - ./indexer/config.yamlss:/config.yaml
     expose:
       - 8084
       - 8080
