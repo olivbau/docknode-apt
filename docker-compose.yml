@@ -78,12 +78,12 @@ services:
     volumes:
       - type: bind
         source: ./indexer/config.yaml
-        target: /config.yaml
+        target: /app/config.yaml
     expose:
       - 8084
       - 8080
     command:
-      - "-c /config.yaml"
+      - "-c /app/config.yaml"
     depends_on:
       - postgres
     networks:
