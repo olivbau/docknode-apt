@@ -77,7 +77,7 @@ services:
     image: aptoslabs/indexer-processor-rust:latest
     volumes:
       - type: bind
-        source: ./aptos-indexer-processor/config.yaml
+        source: ./indexer/config.yaml
         target: /usr/local/config.yaml
     expose:
       - 8084
