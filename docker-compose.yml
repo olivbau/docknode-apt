@@ -72,15 +72,3 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - docknode-apt
-
-  indexerprocessor:
-    image: aptoslabs/indexer-processor-rust
-    volumes:
-      - ./indexer:/indexer
-    expose:
-      - 8084
-      - 8080
-    command:
-      - "-c /indexer/config.yaml"
-    networks:
-      - docknode-apt
