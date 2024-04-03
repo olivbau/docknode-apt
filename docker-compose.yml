@@ -8,7 +8,6 @@ volumes:
   fullnode_data: {}
   caddy_data: {}
   caddy_config: {}
-  postgres_data: {}
 
 services:
   fullnode:
@@ -60,15 +59,5 @@ services:
       - METRICS_USERS=${METRICS_USERS:?err}
       - RPC_USERS=${RPC_USERS:?err}
       - HOST=${HOST:?err}
-    networks:
-      - docknode-apt
-
-  postgres:
-    image: postgres:15.6
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
     networks:
       - docknode-apt
