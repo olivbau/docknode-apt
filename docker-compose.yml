@@ -8,17 +8,19 @@ volumes:
   fullnode_data: {}
   caddy_data: {}
   caddy_config: {}
+  postgres_data: {}
 
 services:
   fullnode:
     image: "aptoslabs/validator:mainnet"
     restart: unless-stopped
     ports:
-      - 127.0.0.1:8080:8080
-      - 127.0.0.1:9101:9101
       - 6180:6180/tcp
       - 6182:6182/tcp
       - 6186:6186/tcp
+    expose:
+      - 8080
+      - 9101
     volumes:
       - ./aptos:/opt/aptos/etc
       - fullnode_data:/opt/aptos/data
@@ -58,5 +60,27 @@ services:
       - METRICS_USERS=${METRICS_USERS:?err}
       - RPC_USERS=${RPC_USERS:?err}
       - HOST=${HOST:?err}
+    networks:
+      - docknode-apt
+
+  postgres:
+    image: postgres:15.6
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - docknode-apt
+
+  indexerprocessor:
+    image: aptoslabs/indexer-processor-rust:latest
+    volumes:
+      - ./aptos-indexer-processor/config.yaml:/app/config/config.yaml
+    expose:
+      - 8084
+      - 8080
+    depends_on:
+      - postgres
     networks:
       - docknode-apt

@@ -18,3 +18,16 @@
         }
         reverse_proxy fullnode:9101
 }
+
+{$HOST}:8084 {
+        basicauth /* {
+                {$METRICS_USERS}
+        }
+        reverse_proxy indexerprocessor:8084
+}
+{$HOST}:8085 {
+        basicauth /* {
+                {$METRICS_USERS}
+        }
+        reverse_proxy indexerprocessor:8080
+}
