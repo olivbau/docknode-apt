@@ -78,12 +78,12 @@ services:
     volumes:
       - type: bind
         source: ./aptos-indexer-processor/config.yaml
-        target: /config.yaml
+        target: /usr/local/bin/processor/config.yaml
     expose:
       - 8084
       - 8080
     command:
-      - "-c /config.yaml"
+      - "-c /usr/local/bin/processor/config.yaml"
     depends_on:
       - postgres
     networks:
