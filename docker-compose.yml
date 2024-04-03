@@ -81,7 +81,7 @@ services:
       - 8084
       - 8080
     command:
-      - "--help"
+      - "-c /config.yaml"
     depends_on:
       - postgres
     networks:
