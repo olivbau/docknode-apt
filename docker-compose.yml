@@ -76,14 +76,12 @@ services:
   indexerprocessor:
     image: aptoslabs/indexer-processor-rust:latest
     volumes:
-      - type: bind
-        source: ./indexer/config.yaml
-        target: /app/config.yaml
+      - ./indexer/config.yaml:/config.yaml
     expose:
       - 8084
       - 8080
     command:
-      - "-c /app/config.yaml"
+      - "-c /config.yaml"
     depends_on:
       - postgres
     networks:
